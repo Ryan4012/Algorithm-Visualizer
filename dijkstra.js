@@ -11,6 +11,9 @@ let selectedStartNode = null;
 let selectedEndNode = null;
 let nodeCount = 0;
 let visitedCount = 0;
+let animationSpeed = 100; // default ms delay
+const DEFAULT_SPEED = 100;
+
 const nodeFiles = [ "assets/node-1.svg", "assets/node-2.svg", "assets/node-3.svg", "assets/node-4.svg", "assets/node-5.svg", "assets/node-6.svg", "assets/node-7.svg" ];
 
 // Colored node SVG files for different states
@@ -271,7 +274,7 @@ function playSteps(steps, callback) {
     }  
   }
 
-    setTimeout(next, 25); // speed of animation
+    setTimeout(next, animationSpeed); // speed of animation
     i++;
   }
 

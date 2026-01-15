@@ -68,7 +68,7 @@
                  <span class="btn-icon">◄</span> Back
              </button>
              <button class="control-btn stop-btn" id="stopBtn">
-                 <span class="btn-icon">⬛</span> Stop 
+                 <span class="btn-icon">◻️</span> Stop 
              </button>
          </div>
 
@@ -98,6 +98,15 @@
               </div>
            </div>
         </div>
+        
+        <div style="display:flex; justify-content:center; align-items:center; gap:10px;">
+          <label>
+            Speed:
+            <input type="range" id="speedSlider" min="1" max="200" value="100">
+          </label>
+          <span id="speedValue">100</span> ms
+        </div>
+    
 
         <div class="bottom-grid">
             <div class="card info">
@@ -273,7 +282,29 @@
 
        document.getElementById('stat-visited').textContent = '0';
        document.getElementById('stat-status').textContent = 'Ready';
+
+      // reset speed
+      animationSpeed = DEFAULT_SPEED;
+
+      const slider = document.getElementById("speedSlider");
+      const speedValue = document.getElementById("speedValue");
+
+      if (slider) slider.value = DEFAULT_SPEED;
+      if (speedValue) speedValue.textContent = DEFAULT_SPEED;
     });
+
+
+
+    const slider = document.getElementById("speedSlider");
+    const speedValue = document.getElementById("speedValue");
+
+    if (slider) {
+      slider.addEventListener("input", () => {
+        animationSpeed = Number(slider.value);
+        speedValue.textContent = slider.value;
+      });
+    }
+
   </script>
 </body>
 </html>
